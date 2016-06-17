@@ -6,7 +6,7 @@ const HomePage = (props) =>{
     <div className="jumbotron">
       <h1>Get the weather</h1>
       <p>Enter a city and state</p>
-      <Form alignment='form-inline'/>
+      <Form alignment='form-inline' onGetWeather={props.onGetWeather}/>
     </div>
   )
 }

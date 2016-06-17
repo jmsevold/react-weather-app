@@ -12,14 +12,14 @@ class Main extends React.Component {
 
   handleGetWeather(e){
     e.preventDefault();
-    console.log('sdfds');
+    console.log(e.target);
   }
 
   render(){
     return(
       <div>
         <Form alignment="navbar-form navbar-right" onGetWeather={this.handleGetWeather}/>
-        <HomePage />
+        <HomePage onGetWeather={this.handleGetWeather}/>
       </div>
     );
   }
