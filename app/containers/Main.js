@@ -12,7 +12,8 @@ class Main extends React.Component {
 
   handleGetWeather(e){
     e.preventDefault();
-    console.log(e.target);
+    let inputFieldValue = e.target.children[0].children[0].value
+    console.log(`your input is ${inputFieldValue}`)
   }
 
   render(){
