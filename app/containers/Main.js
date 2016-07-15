@@ -19,7 +19,7 @@ class Main extends React.Component {
   render(){
     return(
       <div>
-        <Form alignment="navbar-form navbar-right" onGetWeather={this.handleGetWeather}/>
+        <Form alignment="navbar-form navbar-right" onGetWeather={() => this.handleGetWeather}/>
         <HomePage onGetWeather={this.handleGetWeather}/>
       </div>
     );
