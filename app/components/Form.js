@@ -5,7 +5,13 @@ const Form = (props) =>{
     <div>
       <form className={props.alignment} onSubmit={props.onGetWeather}>
         <div className="form-group">
-          <input type="text" className="form-control" placeholder="City, State"></input>
+          <input
+            type="textarea"
+            ref="city"
+            className="form-control"
+            placeholder="City, State"
+            onChange={props.onInputChange}>
+          </input>
         </div>
         <button
           type="submit"
