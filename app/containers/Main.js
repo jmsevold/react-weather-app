@@ -40,8 +40,8 @@ class Main extends React.Component {
     return(
       <div>
         <Form
-          onSubmitQuery={this.handleSubmitQuery}
-          onInputChange={this.onInputChange}/>
+          onSubmitQuery={() => this.handleSubmitQuery}
+          onInputChange={() => this.handleInputChange}/>
 
         <button onClick={this.handleClick}>Click me!</button>
       </div>
