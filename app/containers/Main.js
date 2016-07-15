@@ -44,6 +44,25 @@ class Main extends React.Component {
           onInputChange={() => this.handleInputChange}/>
 
         <button onClick={this.handleClick}>Click me!</button>
+        <p>heres the same damn form, but not as a component</p>
+
+        <form className='form-inline' onSubmitQuery={this.handleSubmitQuery.bind(this)}>
+        <h1>Get the weather</h1>
+        <p>Enter a city and state</p>
+          <div className="form-group">
+            <input
+              type="textarea"
+              className="form-control"
+              placeholder="City, State"
+              onChange={this.handleInputChange.bind(this)}>
+            </input>
+          </div>
+          <button
+            type="submit"
+            className="btn btn-default btn-success">
+            Get Weather
+          </button>
+        </form>
       </div>
     );
   }
