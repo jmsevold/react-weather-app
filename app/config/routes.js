@@ -5,9 +5,8 @@ import CityForecast from '../components/CityForecast'
 
 var routes = (
   <Router history={hashHistory}>
-    <Route path='/' component={Main}>
-      <Route path='/forecast/:city' component={CityForecast}></Route>
-    </Route>
+    <Route path='/' component={Main}></Route>
+    <Route path='/forecast/:city' component={CityForecast}></Route>
   </Router>
 );
 

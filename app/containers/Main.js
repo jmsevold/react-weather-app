@@ -1,26 +1,23 @@
 import React from 'react'
 import Form from '../components/Form'
-import HomePage from '../components/HomePage'
 import * as weatherHelper from '../utils/openWeatherMapHelpers'
-
 
 
 
 class Main extends React.Component {
   constructor(props) {
     super(props)
-    this.handleSubmitQuery = this.handleSubmitQuery.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.state ={
+    this.state = {
       query: ''
     }
   }
 
   handleSubmitQuery(e){
     e.preventDefault();
+    console.log('handling query');
     let query = this.state.query;
     console.log(query);
-    weatherHelper.fiveDayForecast(query)
+    weatherHelper.getCurrentWeather(query)
     .then((data) =>{
       console.log(data);
     })
@@ -31,18 +28,22 @@ class Main extends React.Component {
     this.setState({
       query: query
     })
+    console.log(this.state.query);
   }
+
+  handleClick(e){
+    console.log('clicked')
+  }
+
 
   render(){
     return(
       <div>
         <Form
-          alignment="navbar-form navbar-right"
-          onInputChange={this.handleInputChange}
-          onGetWeather={this.handleSubmitQuery}/>
-        <HomePage
-          onGetWeather={this.handleSubmitQuery}
-          onInputChange={this.handleInputChange}/>
+          onSubmitQuery={this.handleSubmitQuery}
+          onInputChange={this.onInputChange}/>
+
+        <button onClick={this.handleClick}>Click me!</button>
       </div>
     );
   }
