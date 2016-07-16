@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Form = (props) =>{
+const Form = (props) => {
   return (
-    <div>
-      <form className={props.alignment} onSubmit={props.onGetWeather}>
+    <div className="jumbotron">
+      <h1>Get the weather</h1>
+      <p>Enter a city and state</p>
+      <form className="form-inline" onSubmit={props.onSubmitQuery}>
         <div className="form-group">
           <input
             type="textarea"

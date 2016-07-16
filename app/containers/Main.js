@@ -1,6 +1,5 @@
 import React from 'react'
 import Form from '../components/Form'
-import HomePage from '../components/HomePage'
 import * as weatherHelper from '../utils/openWeatherMapHelpers'
 
 
@@ -37,11 +36,7 @@ class Main extends React.Component {
     return(
       <div>
         <Form
-          alignment="navbar-form navbar-right"
-          onInputChange={this.handleInputChange}
-          onGetWeather={this.handleSubmitQuery}/>
-        <HomePage
-          onGetWeather={this.handleSubmitQuery}
+          onSubmitQuery={this.handleSubmitQuery}
           onInputChange={this.handleInputChange}/>
       </div>
     );
