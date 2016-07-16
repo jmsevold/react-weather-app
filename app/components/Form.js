@@ -7,7 +7,6 @@ const Form = (props) =>{
         <div className="form-group">
           <input
             type="textarea"
-            ref="city"
             className="form-control"
             placeholder="City, State"
             onChange={props.onInputChange}>
