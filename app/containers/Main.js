@@ -41,10 +41,11 @@ class Main extends React.Component {
       <div>
         <Form
           onSubmitQuery={() => this.handleSubmitQuery}
-          onInputChange={() => this.handleInputChange}/>
+          onInputChange={() => this.handleInputChange}
+         />
 
-        <button onClick={this.handleClick}>Click me!</button>
-        <p>heres the same damn form, but not as a component</p>
+
+        <h2>heres the same damn form, but not as a component</h2>
 
         <form className='form-inline' onSubmitQuery={this.handleSubmitQuery.bind(this)}>
         <h1>Get the weather</h1>
@@ -63,6 +64,7 @@ class Main extends React.Component {
             Get Weather
           </button>
         </form>
+        <button onClick={this.handleClick}>Click me!</button>
       </div>
     );
   }
