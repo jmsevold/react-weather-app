@@ -15,3 +15,12 @@ export function fiveDayForecast(city){
     return forecast.data;
   });
 }
+
+
+/*
+weatherHelper.getCurrentWeather(query)
+.then((data) =>{
+  console.log(data);
+})
+
+*/

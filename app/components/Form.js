@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Form = (props) =>{
+const Form = (props) => {
   return (
-    <div>
-      <form className='form-inline' onSubmitQuery={props.onSubmitQuery}>
+    <div className="jumbotron">
       <h1>Get the weather</h1>
       <p>Enter a city and state</p>
+      <form className="form-inline">
         <div className="form-group">
           <input
             type="textarea"
@@ -15,10 +15,11 @@ const Form = (props) =>{
           </input>
         </div>
         <button
+          onClick={props.onSubmitQuery}
           type="submit"
           className="btn btn-default btn-success">
           Get Weather
-        </button>
+          </button>
       </form>
     </div>
   )

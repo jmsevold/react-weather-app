@@ -1,12 +1,16 @@
 import React from 'react'
 import Form from '../components/Form'
 import * as weatherHelper from '../utils/openWeatherMapHelpers'
+import { Router } from 'react-router';
 
 
 
 class Main extends React.Component {
-  constructor(props) {
+  constructor(props,context) {
     super(props)
+    context.router
+    this.handleSubmitQuery = this.handleSubmitQuery.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.state = {
       query: ''
     }
@@ -14,60 +18,32 @@ class Main extends React.Component {
 
   handleSubmitQuery(e){
     e.preventDefault();
-    console.log('handling query');
     let query = this.state.query;
-    console.log(query);
-    weatherHelper.getCurrentWeather(query)
-    .then((data) =>{
-      console.log(data);
-    })
+    //browserHistory.push(`/forecast/${query}`);
+    this.context.router.push({pathname: `/forecast/${query}`})
   }
+
 
   handleInputChange(e){
     let query = e.target.value;
     this.setState({
       query: query
     })
-    console.log(this.state.query);
   }
-
-  handleClick(e){
-    console.log('clicked')
-  }
-
 
   render(){
     return(
       <div>
         <Form
-          onSubmitQuery={() => this.handleSubmitQuery}
-          onInputChange={() => this.handleInputChange}
-         />
-
-
-        <h2>heres the same damn form, but not as a component</h2>
-
-        <form className='form-inline' onSubmitQuery={this.handleSubmitQuery.bind(this)}>
-        <h1>Get the weather</h1>
-        <p>Enter a city and state</p>
-          <div className="form-group">
-            <input
-              type="textarea"
-              className="form-control"
-              placeholder="City, State"
-              onChange={this.handleInputChange.bind(this)}>
-            </input>
-          </div>
-          <button
-            type="submit"
-            className="btn btn-default btn-success">
-            Get Weather
-          </button>
-        </form>
-        <button onClick={this.handleClick}>Click me!</button>
+          onSubmitQuery={this.handleSubmitQuery}
+          onInputChange={this.handleInputChange}/>
       </div>
     );
   }
 }
+
+Main.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 module.exports = Main;
