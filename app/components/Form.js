@@ -5,7 +5,7 @@ const Form = (props) => {
     <div className="jumbotron">
       <h1>Get the weather</h1>
       <p>Enter a city and state</p>
-      <form className="form-inline" onSubmit={props.onSubmitQuery}>
+      <form className="form-inline">
         <div className="form-group">
           <input
             type="textarea"
@@ -15,6 +15,7 @@ const Form = (props) => {
           </input>
         </div>
         <button
+          onClick={props.onSubmitQuery}
           type="submit"
           className="btn btn-default btn-success">
           Get Weather

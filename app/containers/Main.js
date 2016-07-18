@@ -1,16 +1,17 @@
 import React from 'react'
 import Form from '../components/Form'
 import * as weatherHelper from '../utils/openWeatherMapHelpers'
-
+import { Router } from 'react-router';
 
 
 
 class Main extends React.Component {
-  constructor(props) {
+  constructor(props,context) {
     super(props)
+    context.router
     this.handleSubmitQuery = this.handleSubmitQuery.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.state ={
+    this.state = {
       query: ''
     }
   }
@@ -18,12 +19,10 @@ class Main extends React.Component {
   handleSubmitQuery(e){
     e.preventDefault();
     let query = this.state.query;
-    console.log(query);
-    weatherHelper.fiveDayForecast(query)
-    .then((data) =>{
-      console.log(data);
-    })
+    //browserHistory.push(`/forecast/${query}`);
+    this.context.router.push({pathname: `/forecast/${query}`})
   }
+
 
   handleInputChange(e){
     let query = e.target.value;
@@ -42,5 +41,9 @@ class Main extends React.Component {
     );
   }
 }
+
+Main.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 module.exports = Main;
