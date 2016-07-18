@@ -18,7 +18,8 @@ class CityForecast extends React.Component {
     .then((data) =>{
       console.log(data);
       this.setState({
-        dataLoaded: true
+        dataLoaded: true,
+        weather: data
       })
     })
   }
@@ -29,7 +30,7 @@ class CityForecast extends React.Component {
       this.state.dataLoaded
       ?
       <div>
-        Forecast
+        {JSON.stringify(this.state.weather, null, ' ')}
       </div>
       :
       <p>Loading</p>
